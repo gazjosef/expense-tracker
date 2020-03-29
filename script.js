@@ -25,12 +25,17 @@ function addTransaction(e) {
     const transaction = {
       id: generateID(),
       text: text.value,
-      amount: amount.value
+      amount: +amount.value
     };
 
     transactions.push(transaction);
 
     addTransactionDom(transaction);
+
+    updateValues();
+
+    text.value = '';
+    amount.value = '';
   }
 }
 
@@ -52,7 +57,9 @@ function addTransactionDom(transaction) {
   item.innerHTML = `
   ${transaction.text} <span>${sign}${Math.abs(
     transaction.amount
-  )}</span> <button class"delete-btn">x</button>
+  )}</span> <button class="delete-btn" onclick="removeTransactions(${
+    transaction.id
+  })">x</button>
   `;
   list.appendChild(item);
 }
@@ -76,6 +83,11 @@ function updateValues() {
   balance.innerText = `$${total}`;
   money_plus.innerText = `$${income}`;
   money_minus.innerText = `$${expense}`;
+}
+
+// Remove transactions by ID
+function removeTransactions(id) {
+  // transactions = transactions.filter(transaction => )
 }
 
 // Init app
