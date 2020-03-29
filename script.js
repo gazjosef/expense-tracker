@@ -15,6 +15,16 @@ const dummyTransactions = [
 
 let transactions = dummyTransactions;
 
+// Add transaction
+function addTransaction(e) {
+  e.preventDefault();
+
+  if (text.value.trim() === '' || amount.value.trim() === '') {
+    alert('Please add a text and amount');
+  } else {
+  }
+}
+
 // Add transactions to DOM list
 function addTransactionDom(transaction) {
   // Get sign
@@ -63,3 +73,5 @@ function init() {
 }
 
 init();
+
+form.addEventListener('submit', addTransaction);
