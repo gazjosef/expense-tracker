@@ -87,7 +87,9 @@ function updateValues() {
 
 // Remove transactions by ID
 function removeTransactions(id) {
-  // transactions = transactions.filter(transaction => )
+  transactions = transactions.filter(transaction => transaction.id !== id);
+
+  init();
 }
 
 // Init app
