@@ -44,7 +44,9 @@ function updateValues() {
     .reduce((acc, item) => (acc += item), 0)
     .toFixed(2);
 
-  console.log(income);
+  const expense = amounts
+    .filter(item => item < 0)
+    .reduce((acc, item) => (acc += item), 0);
 }
 
 // Init app
