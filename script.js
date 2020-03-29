@@ -39,6 +39,8 @@ function addTransaction(e) {
 
     updateValues();
 
+    updateLocalStorage();
+
     text.value = '';
     amount.value = '';
   }
@@ -94,7 +96,14 @@ function updateValues() {
 function removeTransactions(id) {
   transactions = transactions.filter(transaction => transaction.id !== id);
 
+  updateLocalStorage();
+
   init();
+}
+
+// Update local storage transactions
+function updateLocalStorage() {
+  localStorage.setItem('transactions', JSON.stringify(transactions));
 }
 
 // Init app
